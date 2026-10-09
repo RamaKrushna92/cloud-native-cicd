@@ -48,5 +48,7 @@ pipeline {
                 sh '''
                     docker run -d --name welcom-note -p 5000:5000 python-service:v1.0
                 '''
+            }
+        }
     }
 }
