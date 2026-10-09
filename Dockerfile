@@ -1,12 +1,16 @@
 FROM python3.13
 WORKDIR /usr/local/app
 
-COPY hello.py ./
+COPY requirement.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN useradd krushna
-USER krushna
+COPY app.py ./
+EXPOSE 5000
 
-CMD ["python3", "hello.py"]
+RUN useradd ubuntu
+USER ubuntu
+
+CMD ["python3", "app.py"]
 
 
 
