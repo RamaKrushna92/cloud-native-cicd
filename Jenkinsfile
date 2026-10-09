@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh '''
                     cd "${WORKSPACE}"
-                    sh 'trivy config Dockerfile'
+                    trivy config Dockerfile
                 '''
             }
         }
