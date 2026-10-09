@@ -1,7 +1,7 @@
 FROM python3.13
 WORKDIR /usr/local/app
 
-COPY requirement.txt
+COPY requirement.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app.py ./
