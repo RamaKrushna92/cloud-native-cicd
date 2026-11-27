@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Ola! Welcome to my Python micro services POC."
+    return "Ola! Welcome to my Python micro services POC.\n This is a github workflow.."
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

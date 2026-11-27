@@ -11,6 +11,3 @@ RUN useradd ubuntu
 USER ubuntu
 
 CMD ["python3", "app.py"]
-
-
-

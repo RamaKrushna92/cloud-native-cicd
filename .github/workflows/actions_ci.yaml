@@ -1,0 +1,28 @@
+name: CI-WORKFLOW-DOCKER-BUILD
+on:
+  workflow_dispatch:
+    
+
+jobs:
+  EXECUTE_CI_JOB:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout repository ${{ github.repository }}
+        uses: actions/checkout@v7
+      
+      - name: Build Docker Image..
+        run: docker build -t krishnachennaidocker/devsecops-repo:v1.0.0 .
+
+      - name: List out the images
+        run: docker images
+      
+      - name: Run Docker Container
+        run: docker run -d -p 5000:5000 --name devsecops-flask-container krishnachennaidocker/devsecops-repo:v1.0.0
+
+      - name: Smoke Test
+        run: |
+          sleep 5
+          curl http://localhost:5000/health
+
+
