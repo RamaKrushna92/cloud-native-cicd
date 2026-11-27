@@ -1,6 +1,7 @@
 name: CI-WORKFLOW-DOCKER-BUILD
 on:
-  workflow_dispatch:
+  # workflow_dispatch:
+  push
     
 
 jobs:
