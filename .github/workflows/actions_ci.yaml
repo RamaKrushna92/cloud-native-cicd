@@ -2,8 +2,6 @@ name: CI-WORKFLOW-DOCKER-BUILD
 on:
   workflow_dispatch:
   # push
-    
-
 jobs:
   EXECUTE_CI_JOB:
     runs-on: ubuntu-latest
@@ -28,5 +26,14 @@ jobs:
         run: |
           sleep 5
           curl http://localhost:5000/health
+          
+      - name: trivy container image vulnerability scan
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: krishnachennaidocker/devsecops-repo:v1.0.0
+          format: table
+          # exit-code: 1
+          ignore-unfixed: true
+          # severity: 'CRITICAL, HIGH, MEDIUM'
 
 
