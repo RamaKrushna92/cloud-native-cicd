@@ -2,8 +2,6 @@ name: CI-WORKFLOW-DOCKER-BUILD
 on:
   workflow_dispatch:
   # push
-    
-
 jobs:
   EXECUTE_CI_JOB:
     runs-on: ubuntu-latest
